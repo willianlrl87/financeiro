@@ -1,33 +1,34 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import './App.css'
+import React from 'react';
+import { Resume } from './Components/Resume';
+import { Header } from './Components/Header';
+import { Form } from './Components/Form';
+import './index.css';
+
 
 function App() {
-  const [count, setCount] = useState(0)
+  const entradas = 1000
+  const entradasResume = entradas
+    .toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'});
+
+  const saidas = 510;
+  const saidasResume = saidas
+    .toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'});
+
+  const saldo = entradas-saidas;
+  const saldoResume = saldo
+    .toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'});
+
 
   return (
-    <div className="App">
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src="/vite.svg" className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <React.Fragment>
+      <Header />
+      <div style={{display: 'flex'}}>
+        <Resume title='Entradas' resumeValue={entradasResume} />
+        <Resume title='Saídas' resumeValue={saidasResume} />
+        <Resume title='Saldo' resumeValue={saldoResume} />
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </div>
+      <Form />
+    </React.Fragment>
   )
 }
 
