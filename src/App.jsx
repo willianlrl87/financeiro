@@ -1,6 +1,7 @@
 import React from 'react';
 import { Resume } from './Components/Resume';
 import { Header } from './Components/Header';
+import { Form } from './Components/Form';
 import './index.css';
 
 
@@ -26,6 +27,7 @@ function App() {
         <Resume title='Saídas' resumeValue={saidasResume} />
         <Resume title='Saldo' resumeValue={saldoResume} />
       </div>
+      <Form />
     </React.Fragment>
   )
 }
