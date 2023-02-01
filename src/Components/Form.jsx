@@ -1,3 +1,6 @@
+import * as styles from './styles';
+import { Button } from './Button';
+
 export const Form = () => {
 
     function handleSubmit(){
@@ -5,26 +8,30 @@ export const Form = () => {
     }
 
     return(
-        <form onSubmit={handleSubmit}>
-            <label for='description'>
-                Descrição:
-                <input type='text' id='description' />
-            </label>
+        <styles.DivForm>
+            <styles.Form onSubmit={handleSubmit}>
+                <label htmlFor='description'>
+                    Descrição:
+                    <input type='text' id='description' />
+                </label>
 
-            <label for='value'>
-                Valor:
-                <input type='number' id='value' />
-            </label>
+                <label htmlFor='value'>
+                    Valor:
+                    <input type='number' id='value' />
+                </label>
+                <div>
+                    <label htmlFor='entrada'>
+                        Entrada
+                        <styles.Radio id='entrada' name='entradaSaida' />
+                    </label>
 
-            <label for='entrada'>
-                Entrada
-                <input  type='radio' id='entrada' name='entradaSaida' />
-            </label>
-
-            <label for='saida'>
-                Saída
-                <input type='radio' id='saida' name='entradaSaida' />
-            </label>
-        </form>
+                    <label htmlFor='saida'>
+                        Saída
+                        <styles.Radio id='saida' name='entradaSaida' />
+                    </label>
+                </div>
+                <Button>Adicionar</Button>
+            </styles.Form>
+        </styles.DivForm>
     )
 }

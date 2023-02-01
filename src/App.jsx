@@ -3,30 +3,24 @@ import { Resume } from './Components/Resume';
 import { Header } from './Components/Header';
 import { Form } from './Components/Form';
 import './index.css';
+import { useShowAsMoney } from './hooks/useShowAsMoney';
+import * as styles from './Components/styles';
+
 
 
 function App() {
-  const entradas = 1000
-  const entradasResume = entradas
-    .toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'});
-
+  const entradas = 1000;
   const saidas = 510;
-  const saidasResume = saidas
-    .toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'});
-
   const saldo = entradas-saidas;
-  const saldoResume = saldo
-    .toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'});
-
 
   return (
     <React.Fragment>
       <Header />
-      <div style={{display: 'flex'}}>
-        <Resume title='Entradas' resumeValue={entradasResume} />
-        <Resume title='Saídas' resumeValue={saidasResume} />
-        <Resume title='Saldo' resumeValue={saldoResume} />
-      </div>
+      <styles.ResumesDiv>
+        <Resume title='Entradas' resumeValue={useShowAsMoney(entradas)} />
+        <Resume title='Saídas' resumeValue={useShowAsMoney(saidas)} />
+        <Resume title='Saldo' resumeValue={useShowAsMoney(saldo)} />
+      </styles.ResumesDiv>
       <Form />
     </React.Fragment>
   )
