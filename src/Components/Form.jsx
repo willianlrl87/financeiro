@@ -10,25 +10,25 @@ export const Form = () => {
     return(
         <styles.DivForm>
             <styles.Form onSubmit={handleSubmit}>
-                <label htmlFor='description'>
+                <styles.Label htmlFor='description'>
                     Descrição:
                     <input type='text' id='description' />
-                </label>
+                </styles.Label>
 
-                <label htmlFor='value'>
+                <styles.Label htmlFor='value'>
                     Valor:
                     <input type='number' id='value' />
-                </label>
+                </styles.Label>
                 <div>
-                    <label htmlFor='entrada'>
+                    <styles.Label htmlFor='entrada'>
                         Entrada
                         <styles.Radio id='entrada' name='entradaSaida' />
-                    </label>
+                    </styles.Label>
 
-                    <label htmlFor='saida'>
+                    <styles.Label htmlFor='saida'>
                         Saída
                         <styles.Radio id='saida' name='entradaSaida' />
-                    </label>
+                    </styles.Label>
                 </div>
                 <Button>Adicionar</Button>
             </styles.Form>

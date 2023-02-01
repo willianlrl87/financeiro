@@ -5,6 +5,7 @@ import { Form } from './Components/Form';
 import './index.css';
 import { useShowAsMoney } from './hooks/useShowAsMoney';
 import * as styles from './Components/styles';
+import { Operations } from './Components/Operations';
 
 
 
@@ -22,6 +23,7 @@ function App() {
         <Resume title='Saldo' resumeValue={useShowAsMoney(saldo)} />
       </styles.ResumesDiv>
       <Form />
+      <Operations />
     </React.Fragment>
   )
 }

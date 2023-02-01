@@ -11,8 +11,11 @@ export const Header = styled.h1`
 `;
 
 export const Label = styled.label`
-    padding: 5px;
+    padding: 25px;
 `;
+
+
+
 
 export const ResumesDiv = styled.div`
     display: flex;
@@ -44,6 +47,8 @@ export const ResumeValue = styled.strong`
     font-size: 1.4rem;
 `;
 
+
+
 export const DivForm = styled.div`
     display: flex;
     justify-content: center;
@@ -63,6 +68,9 @@ export const Form = styled.form`
     height: cover;
 `;
 
+
+
+
 export const Radio = styled.input.attrs({type:'radio'})`
     margin: 0 5px;
     margin-right: 15px;
@@ -77,4 +85,20 @@ export const AddButton = styled.button`
     font-weight:bold;
     margin: 15px;
     height: 40px;
+`;
+
+
+export const OperationsDiv = styled.div`
+    background-color: ${backgrounds.secondary};
+    width: 85vw;
+    height: cover;
+    margin-top: 40px;
+    border-radius 10px;
+`;
+
+export const OperationsHeaderDiv =styled.div`
+    display: flex;
+    margin: 15px 20px;
+    padding: 15px 0px;
+    border-bottom: 1px solid #ccc;
 `;
