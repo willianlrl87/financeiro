@@ -101,4 +101,13 @@ export const OperationsHeaderDiv =styled.div`
     margin: 15px 20px;
     padding: 15px 0px;
     border-bottom: 1px solid #ccc;
+    width: object-fit;
+
+`;
+
+export const OperationRegisterDiv =styled.div`
+    display: flex;
+    margin: 15px 20px;
+    padding: 15px 0px;
+    width: object-fit;
 `;

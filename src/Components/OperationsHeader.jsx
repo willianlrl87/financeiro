@@ -1,5 +1,5 @@
 import * as styles from './styles';
-import React from 'react';
+import {FaTrash} from 'react-icons/fa';
 
 export const OperationsHeader = () => {
 
@@ -7,9 +7,9 @@ export const OperationsHeader = () => {
         <styles.OperationsHeaderDiv>
             <span style={{flex:'2'}}>Descrição</span>
             <span style={{flex:'2'}}>Valor</span>
-            <div style={{display:'flex', flex: '1', justifyContent:'space-between', width: '150px'}}>
+            <div style={{display:'flex', flex: '1', justifyContent:'space-between'}}>
                 <span>Tipo</span>
-                <span></span>
+                <span><FaTrash /></span>
             </div>
         </styles.OperationsHeaderDiv>
     )
