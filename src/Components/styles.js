@@ -131,32 +131,9 @@ export const OperationsDiv = styled.div`
 export const OperationsHeaderDiv =styled.div`
     display: flex;
     margin: 15px 20px;
-    padding: 15px 0px;
-    border-bottom: 1px solid #ccc;
-    width: object-fit;
-
-    @media(max-width: 768px){
-        span{
-            flex: 3;
-            word-wrap: break-word;
-        }
-
-        div{
-            flex: 1;
-        }
-
-        .operationValue{
-            flex: 2;
-        }
-    }
-
-`;
-
-export const OperationRegisterDiv =styled.div`
-    display: flex;
-    margin: 15px 20px;
     padding: 15px 0px 15px 7px;
     width: object-fit;
+    border-bottom: 1px solid #AAA;
 
     span{
         flex: 2;
@@ -174,7 +151,45 @@ export const OperationRegisterDiv =styled.div`
     @media(max-width: 768px){
         span{
             flex: 3;
-            word-wrap: break-word;
+            
+        }
+
+        div{
+            flex: 1;
+        }
+
+        .operationValue{
+            flex: 2;
+        }
+    }
+`;
+
+export const OperationRegisterDiv =styled.div`
+    display: flex;
+    margin: 15px 20px;
+    padding: 15px 0px 15px 12px;
+    width: object-fit;
+
+    span{
+        flex: 2;
+        word-break: break-all;
+        padding-right:20px;
+    }
+
+    div{
+        display: flex;
+        flex: 1;
+    }
+
+    i{
+        padding-left: 8px;
+        align: center;
+    }
+
+    @media(max-width: 768px){
+        span{
+            flex: 3;
+            
         }
 
         div{

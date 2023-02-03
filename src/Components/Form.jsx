@@ -33,13 +33,13 @@ export const Form = () => {
                 <styles.Label htmlFor='description'>
                     Descrição:
                     <input type='text' id='description' value={formValue.description}
-                         name='description' onChange={handleChange} />
+                         name='description' onChange={handleChange} required />
                 </styles.Label>
 
                 <styles.Label htmlFor='value'>
                     Valor:
                     <input type='number' id='value' name='value' value={formValue.value}
-                        onChange={handleChange} />
+                        onChange={handleChange} required />
                 </styles.Label>
                 <div>
                     <styles.Label htmlFor='entrada'>

@@ -1,5 +1,5 @@
 import * as styles from './styles';
-import {FaTrash} from 'react-icons/fa';
+import {FaTrash, FaDollarSign } from 'react-icons/fa';
 
 export const OperationsHeader = () => {
 
@@ -8,7 +8,7 @@ export const OperationsHeader = () => {
             <span>Descrição</span>
             <span className='operationValue'>Valor</span>
             <div>
-                <span>Tipo</span>
+                <i><FaDollarSign /></i>
                 <i><FaTrash /></i>
             </div>
         </styles.OperationsHeaderDiv>
