@@ -9,12 +9,12 @@ export const OperationRegister = () => {
     const resultToRender = operationsRegistered.map((operation) => {
         return(
             <styles.OperationRegisterDiv key={operation.id}>
-                <span key='teste' style={{flex:'2'}}>{operation.description}</span>
-                <span style={{flex:'2'}}>{operation.value}</span>
-                <div style={{display:'flex', flex: '1', justifyContent:'space-between'}}>
-                    <span>{operation.type == 'entrada' ? <FaArrowCircleUp color='green'/> 
-                        : <FaArrowCircleDown color='red' /> }</span>
-                    <span><FaTrash /></span>
+                <span>{operation.description}</span>
+                <span className='operationValue'>{operation.value}</span>
+                <div>
+                    <i>{operation.type == 'entrada' ? <FaArrowCircleUp color='green'/> 
+                        : <FaArrowCircleDown color='red' /> }</i>
+                    <i><FaTrash /></i>
                 </div>
             </styles.OperationRegisterDiv>
         )

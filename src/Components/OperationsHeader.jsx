@@ -5,11 +5,11 @@ export const OperationsHeader = () => {
 
     return (
         <styles.OperationsHeaderDiv>
-            <span style={{flex:'2'}}>Descrição</span>
-            <span style={{flex:'2'}}>Valor</span>
-            <div style={{display:'flex', flex: '1', justifyContent:'space-between'}}>
+            <span>Descrição</span>
+            <span className='operationValue'>Valor</span>
+            <div>
                 <span>Tipo</span>
-                <span><FaTrash /></span>
+                <i><FaTrash /></i>
             </div>
         </styles.OperationsHeaderDiv>
     )
