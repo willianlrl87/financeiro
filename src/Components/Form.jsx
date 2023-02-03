@@ -44,7 +44,7 @@ export const Form = () => {
                 <div>
                     <styles.Label htmlFor='entrada'>
                         Entrada
-                        <styles.Radio id='entrada' name='entradaSaida' 
+                        <styles.Radio id='entrada' name='entradaSaida' required 
                             value={formValue.type} onChange={handleChange} />
                     </styles.Label>
 

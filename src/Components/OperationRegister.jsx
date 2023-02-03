@@ -2,6 +2,7 @@ import * as styles from './styles';
 import { FaTrash, FaArrowCircleUp, FaArrowCircleDown } from 'react-icons/fa';
 import OperationsContext from '../contexts/OperationsContext';
 import {useState, useContext, Fragment} from 'react';
+import { useShowAsMoney } from '../hooks/useShowAsMoney';
 
 export const OperationRegister = () => {
     const {operationsRegistered, setOperationsRegistered} = useContext(OperationsContext);
@@ -10,7 +11,7 @@ export const OperationRegister = () => {
         return(
             <styles.OperationRegisterDiv key={operation.id}>
                 <span>{operation.description}</span>
-                <span className='operationValue'>{operation.value}</span>
+                <span className='operationValue'>{useShowAsMoney(operation.value)}</span>
                 <div>
                     <i>{operation.type == 'entrada' ? <FaArrowCircleUp color='green'/> 
                         : <FaArrowCircleDown color='red' /> }</i>
