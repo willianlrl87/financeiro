@@ -8,6 +8,9 @@ export const Header = styled.h1`
     height: 15vh;
     width: 100vw;
     text-align: center;
+    @media(max-width: 768px){
+        height: 10vh;
+    }
 `;
 
 export const Label = styled.label`
@@ -15,17 +18,25 @@ export const Label = styled.label`
 `;
 
 
-
-
 export const ResumesDiv = styled.div`
     display: flex;
-    width: 90vw;
+    width: 85vw;
     justify-content: space-between;
+    
+    @media(max-width: 768px){
+        display: block;
+        padding: 20px;
+
+        div{
+            margin-top: 10px;
+        }
+    }
 `;
 
 export const Resume = styled.div`
-    width: 25vw;
+    width: object-fit;
     height: 15vh;
+    margin: 0;
     margin-top: -5vh;
     padding: 10px 20px;
     background-color: ${backgrounds.secondary};
@@ -58,6 +69,11 @@ export const DivForm = styled.div`
     margin-top: 5vh;
     padding: 20px;
     border-radius: 10px;
+
+    @media(max-width: 768px){
+        height: auto;
+    }
+
 `;
 
 export const Form = styled.form`
@@ -66,6 +82,22 @@ export const Form = styled.form`
     align-items: center;
     width: inherit;
     height: cover;
+    
+    @media(max-width: 768px){
+        display: inline-block;
+
+        input[type=number],
+        input[type=text]{
+            display: block;
+            margin-bottom: 10px;
+            
+        }
+
+        label{
+            display: inline-block;
+        }
+
+    }
 `;
 
 

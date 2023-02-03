@@ -11,9 +11,9 @@ import OperationsContext from './contexts/OperationsContext';
 
 
 function App() {
-  const entradas = 1000;
-  const saidas = 510;
-  const saldo = entradas-saidas;
+  const [entradas, setEntradas] = React.useState(0);
+  const [saidas, setSaidas] = React.useState(23459);
+  const [saldo, setSaldo] = React.useState(entradas-saidas);
   const [operations, setOperations] = React.useState({});
   const [formValue, setFormValue] = 
     React.useState({'description':'', 'value': '', 'type':''});
