@@ -3,6 +3,7 @@ import { Button } from './Button';
 import FormContext from '../contexts/FormContext';
 import OperationsContext from '../contexts/OperationsContext';
 import {useContext} from 'react';
+import { useShowAsMoney } from '../hooks/useShowAsMoney';
 
 export const Form = () => {
 
@@ -17,7 +18,14 @@ export const Form = () => {
             setFormValue({...formValue, 'description': target.value});
         }
         if(target.name == 'value'){
-            setFormValue({...formValue, 'value': target.value})
+            const formattedMoney = new Intl.NumberFormat('pt-br', {
+                style: 'currency',
+                currency: 'BRL',
+                currencyDisplay: 'narrowSymbol',
+            }).format(Number(target.value));
+
+
+            setFormValue({...formValue, 'value': formattedMoney});
         }
         if(target.name == 'entradaSaida'){
             setFormValue({...formValue, 'type': target.id});
@@ -38,7 +46,7 @@ export const Form = () => {
 
                 <styles.Label htmlFor='value'>
                     Valor:
-                    <input type='number' id='value' name='value' value={formValue.value}
+                    <input type='' id='value' name='value' value={formValue.value}
                         onChange={handleChange} required />
                 </styles.Label>
                 <div>
