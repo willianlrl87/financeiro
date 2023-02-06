@@ -4,6 +4,7 @@ import FormContext from '../contexts/FormContext';
 import OperationsContext from '../contexts/OperationsContext';
 import {useContext} from 'react';
 import { useShowAsMoney } from '../hooks/useShowAsMoney';
+import {useFormatInputAsText} from '../hooks/useFormatInputAsText';
 
 export const Form = () => {
 
@@ -14,22 +15,11 @@ export const Form = () => {
     }
 
     function handleChange({target}){
+        const formattedValue = useFormatInputAsText(target);
         if(target.name == 'description'){
             setFormValue({...formValue, 'description': target.value});
         }
         if(target.name == 'value'){
-            var formattedValue = target.value.replace(/\D/g, '');
-            if(target.value.length > 13) return null
-
-            if(formattedValue.length >=6){
-                formattedValue = formattedValue.replace(/(\d{1,3})(\d{3})(\d{2})/g, 'R$ $1.$2,$3');
-            }else if(formattedValue.length >=4){
-                formattedValue = formattedValue.replace(/(\d{2,3})(\d{2})/g, 'R$ $1,$2');
-            }else if(formattedValue.length >=3){
-                formattedValue = formattedValue.replace(/(\d{1})(\d{2})/g, 'R$ $1,$2');
-            }
-
-            console.log(formattedValue.length);
             setFormValue({...formValue, 'value': formattedValue});
         }
         if(target.name == 'entradaSaida'){
