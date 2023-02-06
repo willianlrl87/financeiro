@@ -18,14 +18,7 @@ export const Form = () => {
             setFormValue({...formValue, 'description': target.value});
         }
         if(target.name == 'value'){
-            const formattedMoney = new Intl.NumberFormat('pt-br', {
-                style: 'currency',
-                currency: 'BRL',
-                currencyDisplay: 'narrowSymbol',
-            }).format(Number(target.value));
-
-
-            setFormValue({...formValue, 'value': formattedMoney});
+            setFormValue({...formValue, 'value': target.value});
         }
         if(target.name == 'entradaSaida'){
             setFormValue({...formValue, 'type': target.id});
@@ -46,7 +39,7 @@ export const Form = () => {
 
                 <styles.Label htmlFor='value'>
                     Valor:
-                    <input type='' id='value' name='value' value={formValue.value}
+                    <input type='number' id='value' name='value' value={formValue.value}
                         onChange={handleChange} required />
                 </styles.Label>
                 <div>
