@@ -18,7 +18,19 @@ export const Form = () => {
             setFormValue({...formValue, 'description': target.value});
         }
         if(target.name == 'value'){
-            setFormValue({...formValue, 'value': target.value});
+            var formattedValue = target.value.replace(/\D/g, '');
+            if(target.value.length > 13) return null
+
+            if(formattedValue.length >=6){
+                formattedValue = formattedValue.replace(/(\d{1,3})(\d{3})(\d{2})/g, 'R$ $1.$2,$3');
+            }else if(formattedValue.length >=4){
+                formattedValue = formattedValue.replace(/(\d{2,3})(\d{2})/g, 'R$ $1,$2');
+            }else if(formattedValue.length >=3){
+                formattedValue = formattedValue.replace(/(\d{1})(\d{2})/g, 'R$ $1,$2');
+            }
+
+            console.log(formattedValue.length);
+            setFormValue({...formValue, 'value': formattedValue});
         }
         if(target.name == 'entradaSaida'){
             setFormValue({...formValue, 'type': target.id});
@@ -39,7 +51,7 @@ export const Form = () => {
 
                 <styles.Label htmlFor='value'>
                     Valor:
-                    <input type='number' id='value' name='value' value={formValue.value}
+                    <input type='text' id='value' name='value' value={formValue.value}
                         onChange={handleChange} required />
                 </styles.Label>
                 <div>
