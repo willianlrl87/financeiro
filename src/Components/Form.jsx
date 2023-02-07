@@ -2,16 +2,13 @@ import * as styles from './styles';
 import { Button } from './Button';
 import FormContext from '../contexts/FormContext';
 import OperationsContext from '../contexts/OperationsContext';
-import {useContext} from 'react';
+import {useContext, useEffect} from 'react';
 import {useFormatInputAsText} from '../hooks/useFormatInputAsText';
+import { useSaveToLocalStorage } from '../hooks/useSaveToLocalStorage'
 
 export const Form = () => {
-
-    function handleSubmit(event){
-        event.preventDefault();
-        formValue.id = operationsRegistered.length;
-        setOperationsRegistered([...operationsRegistered, formValue]);
-    }
+    const {formValue, setFormValue} = useContext(FormContext);
+    const {operationsRegistered, setOperationsRegistered} = useContext(OperationsContext);
 
     function handleChange({target}){
         const formattedValue = useFormatInputAsText(target);
@@ -24,11 +21,19 @@ export const Form = () => {
         if(target.name == 'entradaSaida'){
             setFormValue({...formValue, 'type': target.id});
         }
-        
     }
 
-    const {formValue, setFormValue} = useContext(FormContext);
-    const {operationsRegistered, setOperationsRegistered} = useContext(OperationsContext);
+    function handleSubmit(event){
+        event.preventDefault();
+        formValue.id = operationsRegistered.length;
+        setOperationsRegistered([...operationsRegistered, formValue]);
+    }
+    
+
+    useEffect(() => {
+        useSaveToLocalStorage(operationsRegistered, setOperationsRegistered);
+    },[operationsRegistered]);
+
 
     return(
         <styles.DivForm>
@@ -41,7 +46,7 @@ export const Form = () => {
 
                 <styles.Label htmlFor='value'>
                     Valor:
-                    <input type='text' id='value' name='value' value={formValue.value}
+                    <input type='text' maxLength='13' id='value' name='value' value={formValue.value}
                         onChange={handleChange} required />
                 </styles.Label>
                 <div>

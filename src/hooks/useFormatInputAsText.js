@@ -1,7 +1,6 @@
 export const useFormatInputAsText = (target) => { 
 
     var formattedValue = target.value.replace(/\D/g, '');
-    if(target.value.length > 13) return null
 
     if(formattedValue.length >=6){
         formattedValue = formattedValue.replace(/(\d{1,3})(\d{3})(\d{2})/g, 'R$ $1.$2,$3');
