@@ -3,7 +3,6 @@ import { Button } from './Button';
 import FormContext from '../contexts/FormContext';
 import OperationsContext from '../contexts/OperationsContext';
 import {useContext} from 'react';
-import { useShowAsMoney } from '../hooks/useShowAsMoney';
 import {useFormatInputAsText} from '../hooks/useFormatInputAsText';
 
 export const Form = () => {
@@ -25,6 +24,7 @@ export const Form = () => {
         if(target.name == 'entradaSaida'){
             setFormValue({...formValue, 'type': target.id});
         }
+        
     }
 
     const {formValue, setFormValue} = useContext(FormContext);

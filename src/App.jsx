@@ -3,7 +3,6 @@ import { Resume } from './Components/Resume';
 import { Header } from './Components/Header';
 import { Form } from './Components/Form';
 import './index.css';
-import { useShowAsMoney } from './hooks/useShowAsMoney';
 import * as styles from './Components/styles';
 import { Operations } from './Components/Operations';
 import FormContext from './contexts/FormContext';
@@ -26,9 +25,9 @@ function App() {
       <OperationsContext.Provider value={{operationsRegistered, setOperationsRegistered}} >
         <FormContext.Provider value={{formValue, setFormValue}} >
           <styles.ResumesDiv>
-            <Resume title='Entradas' resumeValue={useShowAsMoney(entradas)} />
-            <Resume title='Saídas' resumeValue={useShowAsMoney(saidas)} />
-            <Resume title='Saldo' resumeValue={useShowAsMoney(saldo)} />
+            <Resume title='Entradas' resumeValue={entradas} />
+            <Resume title='Saídas' resumeValue={saidas} />
+            <Resume title='Saldo' resumeValue={saldo} />
           </styles.ResumesDiv>
           <Form />
           <Operations />
