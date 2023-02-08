@@ -5,6 +5,7 @@ import OperationsContext from '../contexts/OperationsContext';
 import {useContext, useEffect} from 'react';
 import {useFormatInputAsText} from '../hooks/useFormatInputAsText';
 import { useSaveToLocalStorage } from '../hooks/useSaveToLocalStorage'
+import { useRecoveryFromLocalStorage } from '../hooks/useRecoveryFromLocalStorage';
 
 export const Form = () => {
     const {formValue, setFormValue} = useContext(FormContext);
@@ -29,9 +30,13 @@ export const Form = () => {
         setOperationsRegistered([...operationsRegistered, formValue]);
     }
     
+    useEffect(() => {
+        useRecoveryFromLocalStorage(operationsRegistered);
+    },[]);
 
     useEffect(() => {
-        useSaveToLocalStorage(operationsRegistered, setOperationsRegistered);
+        useSaveToLocalStorage(operationsRegistered);
+        useRecoveryFromLocalStorage();
     },[operationsRegistered]);
 
 
