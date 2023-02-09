@@ -53,7 +53,7 @@ export const Form = () => {
 
                 <styles.Label htmlFor='value'>
                     Valor:
-                    <input type='text' minLength='3' maxLength='13' id='value' name='value' value={formValue.value}
+                    <input type='text' maxLength='13' id='value' name='value' value={formValue.value}
                         onChange={handleChange} required />
                 </styles.Label>
                 <div>
