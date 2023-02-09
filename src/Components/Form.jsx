@@ -10,7 +10,6 @@ import { useRecoveryFromLocalStorage } from '../hooks/useRecoveryFromLocalStorag
 export const Form = () => {
     const {formValue, setFormValue} = useContext(FormContext);
     const {operationsRegistered, setOperationsRegistered} = useContext(OperationsContext);
-    let localData = null;
 
     function handleChange({target}){
         const formattedValue = useFormatInputAsText(target);
@@ -32,8 +31,7 @@ export const Form = () => {
     }
     
     useEffect(() => {
-        localData = useRecoveryFromLocalStorage(operationsRegistered);
-        setOperationsRegistered(localData);
+        useRecoveryFromLocalStorage(operationsRegistered);
     },[]);
 
     useEffect(() => {
