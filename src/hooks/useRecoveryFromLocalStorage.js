@@ -5,7 +5,6 @@ export const useRecoveryFromLocalStorage = (operationsRegistered) => {
     if(localStorage.hasOwnProperty('operações')){
         localData = JSON.parse(localStorage.getItem('operações'));    
     }
-    console.log(localData);
 
     return localData;
 }
